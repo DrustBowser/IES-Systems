@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 5% 0;
+}
+
+mat-card {
+    position: relative;
+    width: 30%;
+}
+
+mat-card-title,
+mat-card-subtitle,
+mat-card-content {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,40 @@
+<!---------------toolbar----------------------->
+<mat-toolbar>
+    <img src="./../../../assets//media/IEs.jpg" style="width: 50px;">
+    <button mat-icon-button type="button" mat-button (click)="opened = !opened" class="sidenav">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span routerLink="/">IES Systems</span>
+    <span class="spacer"></span>
+    <button mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    <button mat-icon-button class="favorite-icon" aria-label="login icon" routerLink="/login" (click)="logout()">
+        <mat-icon >logout</mat-icon>
+    </button>
+</mat-toolbar>
+
+<!---------------sidenav----------------------->
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [(opened)]="opened" mode="over" >
+        <mat-nav-list>
+            <a mat-list-item routerLink="/home" (click)="opened = !opened">
+                <mat-icon>home</mat-icon> &nbsp;
+                Home
+            </a>
+            <a mat-list-item routerLink="/conversiones" (click)="opened = !opened">
+                <mat-icon>calculate</mat-icon> &nbsp;
+                Conversiones
+            </a>
+            <a mat-list-item routerLink="/calcula-fecha" (click)="opened = !opened">
+                <mat-icon>today</mat-icon> &nbsp;
+                Calcula fecha
+            </a>
+            <a mat-list-item routerLink="/formulario" (click)="opened = !opened">
+                <mat-icon>description</mat-icon> &nbsp;
+                Formulario
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+</mat-sidenav-container>

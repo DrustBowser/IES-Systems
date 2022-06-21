@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-title>Bienvenido a mi portal</mat-card-title>
+    <hr>
+    <mat-card-subtitle>Nos podrías indicar tu nombre</mat-card-subtitle>
+    <mat-card-content>
+        <li>
+            <button mat-stroked-button (click)="openDialog()" color="primary">
+                <mat-icon>person</mat-icon> Escribe tu nombre
+            </button>&nbsp;&nbsp;
+        </li>
+        <li>
+            <h3 *ngIf="name != ''">Hola {{ name}}
+            </h3>
+        </li>
+    </mat-card-content>
+</mat-card>

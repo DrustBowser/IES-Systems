@@ -1,0 +1,47 @@
+<ngx-loading name='sp1' type="ball-clip-rotate-multiple"></ngx-loading>
+<mat-card>
+    <mat-card-title>Bienvenido a mi portal</mat-card-title>
+    <hr>
+    <mat-card-content>
+        <form [formGroup]="datos" (ngSubmit)="enviar()">
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre(s)</mat-label>
+                    <input type="text" matInput formControlName="nombres" placeholder="Nombre(s)">
+                </mat-form-field>&nbsp;&nbsp;
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Apellido(s)</mat-label>
+                    <input type="text" matInput formControlName="apellidos" placeholder="Apellido(s)">
+                </mat-form-field>&nbsp;&nbsp;
+                <mat-form-field appearance="fill">
+                    <mat-label>Estado civil</mat-label>
+                    <mat-select placeholder="Estado civil"  formControlName="estadoCivil">
+                        <mat-option *ngFor="let estado of Estados" [value]="estado">{{ estado }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+            <p>&nbsp;&nbsp;
+                <mat-checkbox #fumas formControlName="fumas">Fumas?</mat-checkbox>&nbsp;&nbsp;
+                <mat-checkbox #lectura formControlName="actualmentePracticasLectura">Actualmente practicas lectura?</mat-checkbox>&nbsp;&nbsp;
+                <mat-form-field appearance="fill" style="width: 41%">
+                    <mat-label >Libros leidos en los ultimos 3 meses*</mat-label >
+                    <input type="text" matInput formControlName="librosLeidosUltimosTresMeses" placeholder="Libros(s)" [disabled]="!lectura.checked">
+                </mat-form-field>&nbsp;
+                <button mat-mini-fab (click)="pushing()" color="primary" [disabled]="!lectura.checked" type="button">
+                    <mat-icon class="middle">add</mat-icon>
+                </button>
+            </p>
+            <hr>
+            <h3>Lista de libros</h3>
+            <h3 *ngIf="Libros.length < 1" style="color: blue;"> Sin libros</h3>
+            <p>
+                <tr *ngFor="let libro of Libros">- {{ libro }}</tr>
+                <button mat-icon-button color="accent" (click)="limpiarLibros()" *ngIf="Libros.length > 0"><mat-icon>cleaning_services</mat-icon></button>
+            </p>
+        <button type="submit" mat-raised-button color="primary">
+            <mat-icon>done</mat-icon> Enviar
+        </button>
+    </form>
+    </mat-card-content>
+</mat-card>

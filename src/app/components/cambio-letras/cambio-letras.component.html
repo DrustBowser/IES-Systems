@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-title>Bienvenido a mi portal</mat-card-title>
+    <hr>
+    <mat-card-subtitle>Nos podrías indicar tu nombre</mat-card-subtitle>
+    <mat-card-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Escribe tu nombre</mat-label>
+            <input matInput [(ngModel)]="data.name">
+          </mat-form-field>&nbsp;&nbsp;
+        <button mat-raised-button [mat-dialog-close]="data.name" color="primary">
+            <mat-icon>person</mat-icon> Listo!
+        </button>
+    </mat-card-content>
+</mat-card>
+

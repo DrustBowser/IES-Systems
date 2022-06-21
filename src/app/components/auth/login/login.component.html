@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-title>Login</mat-card-title>
+    <mat-card-subtitle>Ingreso de crendeciales</mat-card-subtitle>
+    <hr>
+    <mat-card-content>
+        <form [formGroup]="clientCredentials" (ngSubmit)="login()">
+            <tr>
+                <mat-form-field appearance="fill">
+                    <mat-label>Usuario</mat-label>
+                    <input type="text" matInput formControlName="username" placeholder="Usuario">
+                </mat-form-field>
+            </tr>
+            <tr>
+                <mat-form-field appearance="fill">
+                    <mat-label>Contraseña</mat-label>
+                    <input type="password" matInput formControlName="password" placeholder="Contraseña">
+                </mat-form-field>
+            </tr>
+            <tr>
+                <button type="submit" mat-raised-button color="primary">
+                    <mat-icon>done</mat-icon> Ingresar
+                </button>
+            </tr>
+        </form>
+    </mat-card-content>
+</mat-card>
